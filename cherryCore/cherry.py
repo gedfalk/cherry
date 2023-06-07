@@ -3,13 +3,26 @@
 import time
 import configparser
 
+def readConfig(configFile):
+    conf = configparser.ConfigParser()
+    conf.read(configFile)
+
+    activeTimer = conf['activeTimer']['name']
+    focusTime = conf[activeTimer]['focusTime']
+    breakTime = conf[activeTimer]['breakTime']
+    lbreakTime = conf[activeTimer]['lbreakTime']
+    rounds = conf[activeTimer]['rounds']
+
+    return focusTime, breakTime, lbreakTime, rounds
+
 
 class Session():
-    def __init__(self, focusTime=30, breakTime=5, lbreakTime=15, rounds=4):
-        self.focusTime = focusTime
-        self.breakTime = breakTime
-        self.lbreakTime = lbreakTime
-        self.rounds = rounds
+    def __init__(self):
+        ft, bt, lbt, r = readConfig('cherry.conf')
+        self.focusTime = ft
+        self.breakTime = bt
+        self.lbreakTime = lbt
+        self.rounds = r
 
     def printConfig(self):
         print(f'\tCurrent config of the session looks like:')
@@ -17,6 +30,8 @@ class Session():
         print(f'\t - break time = {self.breakTime}')
         print(f'\t - long break time = {self.lbreakTime}')
         print(f'\t - rounds = {self.rounds}')
+
+
 
 def greetings(currentSession):
     print('Hello, User!')
