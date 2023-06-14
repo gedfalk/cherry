@@ -6,7 +6,7 @@ from readchar import readkey, key
 from time import sleep
 
 def main():
-    console = Console(width=27)
+    console = Console(width=50)
 
     menu = ['Start', 'Pause', 'Refresh', 'Exit']
     currentOption = 0
@@ -14,7 +14,7 @@ def main():
     while True:
         console.clear()
        
-        console.rule(f'[bold blue]Cherry')
+        console.rule(f'[bold blue]:cherries: Cherry')
         for i, option in enumerate(menu):
             if currentOption == i:
                 console.print(f'[bold green]  {option}[/bold green]')

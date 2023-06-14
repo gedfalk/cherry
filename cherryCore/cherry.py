@@ -16,7 +16,7 @@ def readConfig(configFile):
     return focusTime, breakTime, lbreakTime, rounds
 
 
-class Session():
+class CherrySession():
     def __init__(self):
         ft, bt, lbt, r = readConfig('cherry.conf')
         self.focusTime = ft
@@ -45,7 +45,7 @@ def greetings(currentSession):
     currentSession.printConfig()
 
 def main():
-    currentSession = Session()
+    currentSession = CherrySession()
     greetings(currentSession)
     
 
