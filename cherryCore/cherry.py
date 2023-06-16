@@ -8,10 +8,10 @@ def readConfig(configFile):
     conf.read(configFile)
 
     activeTimer = conf['activeTimer']['name']
-    focusTime = conf[activeTimer]['focusTime']
-    breakTime = conf[activeTimer]['breakTime']
-    lbreakTime = conf[activeTimer]['lbreakTime']
-    rounds = conf[activeTimer]['rounds']
+    focusTime = int(conf[activeTimer]['focusTime'])
+    breakTime = int(conf[activeTimer]['breakTime'])
+    lbreakTime = int(conf[activeTimer]['lbreakTime'])
+    rounds = int(conf[activeTimer]['rounds'])
 
     return focusTime, breakTime, lbreakTime, rounds
 

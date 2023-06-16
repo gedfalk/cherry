@@ -5,18 +5,20 @@ from time import sleep
 from cherry import CherrySession
 
 class Timer():
-    def __init__(self):
+    def __init__(self, console):
         self.cherrySession = CherrySession()
+        self.console = console
 
-    def run():
-        pass
-
-
+    def run(self):
+        totalSeconds = self.cherrySession.focusTime * 60
+        for i in range(totalSeconds + 1):
+            self.console.print(i)
+            sleep(1)
 
 def main():
-    a = Timer()
-    # a.cherrySession.printConfig()
-    pass
+    a = Timer(Console())
+    a.cherrySession.printConfig()
+    a.run()
 
 
 if __name__ == '__main__':
