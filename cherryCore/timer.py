@@ -4,16 +4,26 @@ from rich.console import Console
 from time import sleep
 from cherry import CherrySession
 
+from datetime import datetime, timedelta
+
+
 class Timer():
     def __init__(self, console):
         self.cherrySession = CherrySession()
         self.console = console
 
     def run(self):
-        totalSeconds = self.cherrySession.focusTime * 60
-        for i in range(totalSeconds + 1):
-            self.console.print(i)
+        # required for storing data later
+        startTime = datetime.now()
+        totalTime = timedelta(minutes=self.cherrySession.focusTime)
+        endTime = startTime + totalTime 
+        while datetime.now() < endTime:
+            currentTime = endTime - datetime.now()
+            dummyTime = datetime(1, 1, 1) + currentTime
+            formattedTime = dummyTime.strftime('%M:%S')
+            self.console.print(formattedTime, end='\r')
             sleep(1)
+
 
 def main():
     a = Timer(Console())
