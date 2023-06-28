@@ -2,7 +2,7 @@
 
 from rich.console import Console
 from time import sleep
-from cherry import CherrySession
+from cherryCore.cherry import CherrySession
 
 from datetime import datetime, timedelta
 
