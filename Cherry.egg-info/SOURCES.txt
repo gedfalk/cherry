@@ -1,9 +1,0 @@
-README.md
-launcher.py
-setup.py
-Cherry.egg-info/PKG-INFO
-Cherry.egg-info/SOURCES.txt
-Cherry.egg-info/dependency_links.txt
-Cherry.egg-info/entry_points.txt
-Cherry.egg-info/requires.txt
-Cherry.egg-info/top_level.txt

@@ -1,4 +1,0 @@
-click
-rich
-configparser
-readchar
