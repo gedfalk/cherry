@@ -10,7 +10,6 @@ REQUIRED_PACKAGES = [
     'click',
     'rich',
     'configparser',
-    'readchar',
 ]
 
 # EXTRA_PACKAGES...
