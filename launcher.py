@@ -1,6 +1,5 @@
 # ...
 
-from rich.console import Console
 from cherryCore.timer import Timer
 from cherryCore.mode import Mode
 
@@ -8,10 +7,9 @@ from cherryCore.mode import Mode
 def main():
     # input args
     args = [1, 2, 3]
+    currentMode = Mode(args)
 
-    mode = Mode(args)
-    console = Console()
-    timer = Timer(console)
+    timer = Timer(currentMode)
     timer.run()
     pass
 
