@@ -17,9 +17,18 @@ def readConfig(configFile):
 
 
 class CherrySession():
-    def __init__(self):
-        # Need to change path to absolute?
-        ft, bt, lbt, r = readConfig('cherryCore/cherry.conf')
+    def __init__(self, timer_settings = None):
+        basic_settings = (30, 5, 4, 10)
+        ft, bt, r, lbt = basic_settings
+        if not timer_settings:
+            # Need to change path to absolute?
+            ft, bt, lbt, r = readConfig('cherryCore/cherry.conf')
+        else:
+            ft, bt, *dummy = timer_settings
+            if len(timer_settings) > 2:
+                r = timer_settings[2]
+            if len(timer_settings) == 4:
+                lbt = timer_settings[3]
         self.focusTime = ft
         self.breakTime = bt
         self.lbreakTime = lbt

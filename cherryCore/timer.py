@@ -12,7 +12,7 @@ import select
 
 
 _DEV_ = 1
-_DEV_ = 1000
+_DEV_ = 100
 
 
 def aread_key():
@@ -25,9 +25,9 @@ def aread_key():
 
 
 class Timer():
-    def __init__(self, currentMode):
+    def __init__(self, timer_settings=None, currentMode=None):
         self.old_terminal_settings = termios.tcgetattr(sys.stdin)
-        self.cherrySession = CherrySession()
+        self.cherrySession = CherrySession(timer_settings)
         self.finished = False
         self.running = False
         self.bufTime = {
@@ -65,7 +65,6 @@ class Timer():
     @raw_mode_on_and_off
     def run(self):
         self.running = True
-        # currentTime = timedelta(minutes=self.cherrySession.focusTime)
         self.activateMode()
         # required for storing data later
         self.bufTime['startTime'] = datetime.now()
@@ -92,7 +91,6 @@ class Timer():
                         self.displayAnything(f'Oh, you are leaving...\nWell, bye-bye then\n')
                         # self.finished = True
                         return
-                        break
                 else:
                 # endregion
                     if self.running:
@@ -116,7 +114,6 @@ class Timer():
 
     def activateMode(self):
         self.console.print()
-
 
 
 def main():
