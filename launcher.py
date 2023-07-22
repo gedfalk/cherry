@@ -5,9 +5,35 @@ from cherryCore.mode import Mode
 
 import click
 
-@click.command()
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+
+
+@click.command(context_settings=CONTEXT_SETTINGS)
 @click.argument('timer_settings', type=int, nargs=-1)
 def main(timer_settings):
+    '''
+    Cherry is yet another Pomodoro timer app that helps you organize your
+    work, stay focused and improve overall productivity.
+
+    \b
+        TIMER_SETTINGS
+    Optional argument. A series of integers separated by spaces,
+    representing the desired timer settings in the following order:
+     - focus time: The length of the focused work interval in minutes
+     - break time: The length of the short break interval in minutes
+     - rounds: The number of work and break intervals to complete
+    before triggering a long break
+     - long break time: The length of the longer break interval in
+    minutes
+    If you decide to pass timer settings, then it is required to specify
+    at least two values - focus time and break time. The 3rd and 4th
+    values correspond to the amount of rounds and long break time
+    respectively and may or may not be passed at will. Passing only one
+    value or more than four will result in an error.
+    If timer settings are not set manually, the default values will be
+    applied.
+
+    '''
     match len(timer_settings):
         case 0:
             pass

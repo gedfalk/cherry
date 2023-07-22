@@ -16,6 +16,9 @@ def readConfig(configFile):
     return focusTime, breakTime, lbreakTime, rounds
 
 
+
+
+
 class CherrySession():
     def __init__(self, timer_settings = None):
         basic_settings = (30, 5, 4, 10)
