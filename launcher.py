@@ -37,11 +37,11 @@ def main(timer_settings, prompt):
     applied.
 
     '''
-    #print(timer_settings)
     if prompt:
         pass
         p = MyPrompt()
         p.run()
+        timer_settings = p.get_timer_settings()
     else:
         match len(timer_settings):
             case 0:
@@ -53,8 +53,7 @@ def main(timer_settings, prompt):
                 return
     mode = Mode(1, 2, 3, 4)
 
-    click.echo(timer_settings)
-    click.echo(f'something')
+    #click.echo(timer_settings)
 
     timer = Timer(timer_settings, mode)
     timer.run()
