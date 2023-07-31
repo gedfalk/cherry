@@ -81,7 +81,6 @@ class Timer():
                     self.displayAnything('Timer has been stopped.\nSee you later)\n')
                     # self.finished = True
                     return
-                    break
                 elif key == ' ':
                     self.running = not self.running
                 elif key == '\x03':

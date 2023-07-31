@@ -3,6 +3,7 @@
 from cherryCore.timer import Timer
 from cherryCore.mode import Mode
 from cherryCore.prompt import MyPrompt
+from cherryCore.interactiveMenu import runInteractiveMenu
 
 import click
 
@@ -11,8 +12,9 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
 @click.command(context_settings=CONTEXT_SETTINGS)
 @click.option('-p', '--prompt', is_flag=True)
+@click.option('-i', '--interactive', is_flag=True)
 @click.argument('timer_settings', type=int, nargs=-1)
-def main(timer_settings, prompt):
+def main(timer_settings, prompt, interactive):
     '''
     \b
       Cherry is yet another Pomodoro timer app that helps you organize your
@@ -38,10 +40,11 @@ def main(timer_settings, prompt):
 
     '''
     if prompt:
-        pass
         p = MyPrompt()
         p.run()
         timer_settings = p.get_timer_settings()
+    elif interactive:
+        timer_settings = runInteractiveMenu()
     else:
         match len(timer_settings):
             case 0:
